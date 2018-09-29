@@ -1,8 +1,13 @@
-<mat-list role="list">
-  <mat-list-item
-    *ngFor="let item of items; trackBy: trackByFn"
-    role="listitem"
-  >
-    {{ item.title }}
-  </mat-list-item>
-</mat-list>
+<div class="container">
+  <mat-list role="list">
+    <div
+      class="item"
+      *ngFor="let item of items; trackBy: trackByFn"
+      role="listitem"
+    >
+      <mat-card class="ellipsis">
+        {{ item.title }}
+      </mat-card>
+    </div>
+  </mat-list>
+</div>

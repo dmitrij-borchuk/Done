@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import shortid from 'shortid';
+
+class Task {
+  id: string;
+  constructor(public title: string) {
+    this.id = shortid.generate();
+  }
+}
+
+console.log('=-= Task', Task);
 
 @Component({
   selector: 'app-task-list',
@@ -8,13 +18,11 @@ import { Component, OnInit } from '@angular/core';
 export class TaskListComponent implements OnInit {
   constructor() { }
 
-  items = [{
-    id: 'someId',
-    title: 'some title',
-  }, {
-    id: 'someId2',
-    title: 'other title',
-  }];
+  items = [
+    new Task('some title'),
+    new Task('other title'),
+    new Task('very very very long titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'),
+  ];
 
   ngOnInit() {
   }
