@@ -1,6 +1,9 @@
 {
   "name": "done",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "TODO list",
+  "repository": "https://github.com/dmitrij-borchuk/Done",
+  "author": "Dmytro Borchuk",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
