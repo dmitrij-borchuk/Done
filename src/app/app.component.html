@@ -1,4 +1,18 @@
 <div>
-  <app-task-list></app-task-list>
+  <app-task-list [items]="tasks"></app-task-list>
+
+  <div
+    class="fab"
+    *ngIf="!createTaskMode"
+  >
+    <button
+      mat-fab
+      (click)="addTaskClick()"
+    >
+      <mat-icon aria-label="Add task">add</mat-icon>
+    </button>
+  </div>
+
+  <app-new-task-form *ngIf="createTaskMode"></app-new-task-form>
 </div>
 

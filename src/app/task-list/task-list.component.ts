@@ -1,14 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import shortid from 'shortid';
-
-class Task {
-  id: string;
-  constructor(public title: string) {
-    this.id = shortid.generate();
-  }
-}
-
-console.log('=-= Task', Task);
+import { Component, OnInit, Input } from '@angular/core';
+import Task from '../task';
 
 @Component({
   selector: 'app-task-list',
@@ -16,13 +7,9 @@ console.log('=-= Task', Task);
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  constructor() { }
+  @Input() items: Task[];
 
-  items = [
-    new Task('some title'),
-    new Task('other title'),
-    new Task('very very very long titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'),
-  ];
+  constructor() { }
 
   ngOnInit() {
   }
