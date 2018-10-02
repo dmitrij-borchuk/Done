@@ -4,6 +4,8 @@
       matInput
       placeholder="Task title"
       autofocus
+      #taskNameInput
+      (keyup.enter)="onEnter(taskNameInput.value)"
     >
   </mat-form-field>
 </app-floated-panel>
