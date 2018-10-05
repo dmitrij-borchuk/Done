@@ -11,7 +11,11 @@ export class AppComponent {
   private createTaskMode = false;
 
   constructor(private tasksService: TasksService) {
-    this.tasks = this.tasksService.get();
+    const tasks$ = this.tasksService.get();
+
+    tasks$.subscribe(tasks => {
+      this.tasks = tasks;
+    });
   }
 
   addTaskClick() {
