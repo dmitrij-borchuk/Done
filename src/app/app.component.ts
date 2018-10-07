@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import TasksService from './tasks.service';
+import Task from './task';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import TasksService from './tasks.service';
 })
 export class AppComponent {
   tasks = [];
-  private createTaskMode = false;
+  private editTaskMode = false;
+  private currentTask: Task = null;
 
   constructor(private tasksService: TasksService) {
     const tasks$ = this.tasksService.get();
@@ -19,8 +21,11 @@ export class AppComponent {
   }
 
   addTaskClick() {
-    this.createTaskMode = true;
-    console.log('=-= this.tasksService', this.tasksService);
-    console.log('=-= addTaskClick');
+    this.editTaskMode = true;
+  }
+
+  onItemClick(task: Task) {
+    this.currentTask = task;
+    this.editTaskMode = true;
   }
 }

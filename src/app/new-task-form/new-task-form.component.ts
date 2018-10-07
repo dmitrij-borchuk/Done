@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+} from '@angular/core';
+import shortid from 'shortid';
 import TasksService from '../tasks.service';
 import Task from '../task';
 
@@ -7,11 +12,25 @@ import Task from '../task';
   templateUrl: './new-task-form.component.html',
   styleUrls: ['./new-task-form.component.css']
 })
-export class NewTaskFormComponent {
-  constructor(private tasksService: TasksService) {
+export class NewTaskFormComponent implements OnChanges {
+  @Input() data: Task;
+  private model: Task;
+
+  constructor(private tasksService: TasksService) {}
+
+  ngOnChanges() {
+    this.model = new Task(this.data);
   }
 
   onEnter(title) {
-    this.tasksService.add(new Task(title));
+    if (this.model.id) {
+      this.data.title = title;
+      this.tasksService.edit(this.data);
+    } else {
+      this.tasksService.add(new Task({
+        id: shortid.generate(),
+        title,
+      }));
+    }
   }
 }

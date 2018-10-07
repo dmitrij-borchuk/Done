@@ -1,13 +1,11 @@
 <div class="container">
   <mat-list role="list">
-    <div
+    <app-task-item
       class="item"
+      [data]="item"
       *ngFor="let item of items; trackBy: trackByFn"
       role="listitem"
-    >
-      <mat-card class="ellipsis">
-        {{ item.title }}
-      </mat-card>
-    </div>
+      (click)="onItemClick(item)"
+    ></app-task-item>
   </mat-list>
 </div>

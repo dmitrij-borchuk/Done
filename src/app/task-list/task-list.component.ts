@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  Input,
+} from '@angular/core';
 import Task from '../task';
 
 @Component({
@@ -8,6 +14,7 @@ import Task from '../task';
 })
 export class TaskListComponent implements OnInit {
   @Input() items: Task[];
+  @Output() itemClick = new EventEmitter<Task>();
 
   constructor() { }
 
@@ -18,4 +25,7 @@ export class TaskListComponent implements OnInit {
     return item.id;
   }
 
+  onItemClick(item) {
+    this.itemClick.emit(item);
+  }
 }

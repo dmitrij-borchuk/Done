@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { FloatedPanelComponent } from './floated-panel/floated-panel.component';
 import { NewTaskFormComponent } from './new-task-form/new-task-form.component';
+import { TaskItemComponent } from './task-item/task-item.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { NewTaskFormComponent } from './new-task-form/new-task-form.component';
     TaskListComponent,
     FloatedPanelComponent,
     NewTaskFormComponent,
+    TaskItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { NewTaskFormComponent } from './new-task-form/new-task-form.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

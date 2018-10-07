@@ -5,6 +5,7 @@
       placeholder="Task title"
       autofocus
       #taskNameInput
+      [(ngModel)]="model.title"
       (keyup.enter)="onEnter(taskNameInput.value)"
     >
   </mat-form-field>

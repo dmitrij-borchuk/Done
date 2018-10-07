@@ -1,9 +1,12 @@
 <div>
-  <app-task-list [items]="tasks"></app-task-list>
+  <app-task-list
+    [items]="tasks"
+    (itemClick)="onItemClick($event)"
+  ></app-task-list>
 
   <div
     class="fab"
-    *ngIf="!createTaskMode"
+    *ngIf="!editTaskMode"
   >
     <button
       mat-fab
@@ -13,6 +16,9 @@
     </button>
   </div>
 
-  <app-new-task-form *ngIf="createTaskMode"></app-new-task-form>
+  <app-new-task-form
+    *ngIf="editTaskMode"
+    [data]="currentTask"
+  ></app-new-task-form>
 </div>
 

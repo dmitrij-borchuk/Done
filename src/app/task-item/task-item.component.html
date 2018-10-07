@@ -1,0 +1,11 @@
+<div
+  [ngClass]="{animate: !panInProgress}"
+  (pan)="onPan($event)"
+  (panstart)="onPanStart($event)"
+  (panend)="onPanEnd($event)"
+  #itemElement
+>
+  <mat-card class="ellipsis">
+    {{ data.title }}
+  </mat-card>
+</div>

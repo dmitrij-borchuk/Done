@@ -1,8 +1,9 @@
-import shortid from 'shortid';
-
 export default class Task {
   id: String;
-  constructor(public title: string) {
-    this.id = shortid.generate();
+  title: string;
+  constructor(task?) {
+    const data = task || {};
+    this.id = data.id;
+    this.title = data.title;
   }
 }
